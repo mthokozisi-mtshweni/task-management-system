@@ -10,9 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// ===============================
-// HOME / API STATUS
-// ===============================
+
 app.get("/", (req, res) => {
     res.json({
         message: "Task Management API is running"
@@ -20,9 +18,6 @@ app.get("/", (req, res) => {
 });
 
 
-// ===============================
-// GET ALL TASKS
-// ===============================
 app.get("/api/tasks", (req, res) => {
 
     const sql = "SELECT * FROM tasks ORDER BY created_at DESC";
@@ -42,9 +37,6 @@ app.get("/api/tasks", (req, res) => {
 });
 
 
-// ===============================
-// GET SINGLE TASK
-// ===============================
 app.get("/api/tasks/:id", (req, res) => {
 
     const { id } = req.params;
@@ -72,9 +64,7 @@ app.get("/api/tasks/:id", (req, res) => {
 });
 
 
-// ===============================
-// ADD TASK
-// ===============================
+
 app.post("/api/tasks", (req, res) => {
 
     const { title, description } = req.body;
@@ -117,9 +107,7 @@ app.post("/api/tasks", (req, res) => {
 });
 
 
-// ===============================
-// UPDATE TASK
-// ===============================
+
 app.put("/api/tasks/:id", (req, res) => {
 
     const { id } = req.params;
@@ -164,9 +152,6 @@ app.put("/api/tasks/:id", (req, res) => {
 });
 
 
-// ===============================
-// MARK TASK AS COMPLETED
-// ===============================
 app.put("/api/tasks/:id/complete", (req, res) => {
 
     const { id } = req.params;
@@ -200,9 +185,6 @@ app.put("/api/tasks/:id/complete", (req, res) => {
 });
 
 
-// ===============================
-// DELETE TASK
-// ===============================
 app.delete("/api/tasks/:id", (req, res) => {
 
     const { id } = req.params;
@@ -232,9 +214,6 @@ app.delete("/api/tasks/:id", (req, res) => {
 });
 
 
-// ===============================
-// START SERVER
-// ===============================
 const PORT = 5000;
 
 app.listen(PORT, () => {

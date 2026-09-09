@@ -11,9 +11,7 @@ function App() {
     const [editingTask, setEditingTask] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // =========================
-    // LOAD TASKS
-    // =========================
+   
     const fetchTasks = async () => {
         try {
             setLoading(true);
@@ -32,9 +30,7 @@ function App() {
         fetchTasks();
     }, []);
 
-    // =========================
-    // ADD / UPDATE TASK
-    // =========================
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -65,9 +61,6 @@ function App() {
         }
     };
 
-    // =========================
-    // DELETE TASK
-    // =========================
     const deleteTask = async (id) => {
 
         if (!window.confirm("Are you sure you want to delete this task?")) {
@@ -85,9 +78,7 @@ function App() {
         }
     };
 
-    // =========================
-    // COMPLETE TASK
-    // =========================
+
     const completeTask = async (id) => {
 
         try {
@@ -101,9 +92,7 @@ function App() {
         }
     };
 
-    // =========================
-    // EDIT TASK
-    // =========================
+ 
     const editTask = (task) => {
         setEditingTask(task);
         setTitle(task.title);
@@ -115,18 +104,13 @@ function App() {
         });
     };
 
-    // =========================
-    // RESET FORM
-    // =========================
+
     const resetForm = () => {
         setTitle("");
         setDescription("");
         setEditingTask(null);
     };
 
-    // =========================
-    // STATISTICS
-    // =========================
     const totalTasks = tasks.length;
 
     const completedTasks = tasks.filter(
@@ -140,7 +124,7 @@ function App() {
     return (
         <div className="app">
 
-            {/* SIDEBAR */}
+            
             <aside className="sidebar">
 
                 <div className="logo">
@@ -183,10 +167,10 @@ function App() {
             </aside>
 
 
-            {/* MAIN CONTENT */}
+            
             <main className="main-content">
 
-                {/* HEADER */}
+                
                 <header className="top-header">
 
                     <div>
@@ -211,7 +195,7 @@ function App() {
                 </header>
 
 
-                {/* STATS */}
+                
                 <section className="stats-grid">
 
                     <div className="stat-card">
@@ -244,7 +228,7 @@ function App() {
                 </section>
 
 
-                {/* ADD TASK */}
+              
                 <section className="task-form-card">
 
                     <div className="section-heading">
@@ -321,7 +305,7 @@ function App() {
                 </section>
 
 
-                {/* TASK LIST */}
+                
                 <section
                     className="tasks-section"
                     id="tasks"
